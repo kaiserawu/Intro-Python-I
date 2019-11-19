@@ -22,3 +22,18 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+print('This is a calendar')
+
+now = datetime.now()
+data = [int(x) for x in input('Input month(optional) and year(optional): ').split(' ') if x.isdigit()]
+cal = calendar.TextCalendar()
+
+if (len(data) == 0):
+    cal.prmonth(now.year, now.month)
+elif (len(data) == 1):
+    cal.prmonth(now.year, data[0])
+elif (len(data) == 2):
+    cal.prmonth(data[1], data[0])
+else:
+    print('Please only input either nothing, an optional month selection, and an optional year selection.')
